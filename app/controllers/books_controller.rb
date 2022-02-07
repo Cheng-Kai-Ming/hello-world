@@ -17,7 +17,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-
+    @book.image.attach(params[:book][:images])
     if @book.save
       redirect_to @book, notice: "Book was successfully created."
     else
